@@ -8,15 +8,16 @@ class arr1 {
         System.out.println("enter nummbers of array");
         int num[] = new int[size];
         int max = 0;
-        int min = num[0];
+        int min = Integer.MAX_VALUE;
         for (int i = 0; i < size; i++) {
             num[i] = sc.nextInt();
         }
         for (int i = 0; i < num.length; i++) {
-            min = num[0];
             if (num[i] > max)
                 max = num[i];
-            else if (num[i] < min)
+        }
+        for (int i = 0; i < num.length; i++) {
+            if (num[i] < min)
                 min = num[i];
         }
         System.out.println("minimium number in array is " + min);
