@@ -1,5 +1,7 @@
+package arrays;
 import java.util.*;
-class arr1 {
+
+class arr {
     @SuppressWarnings("resource")
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -8,16 +10,15 @@ class arr1 {
         System.out.println("enter nummbers of array");
         int num[] = new int[size];
         int max = 0;
-        int min = Integer.MAX_VALUE;
+        int min = num[0];
         for (int i = 0; i < size; i++) {
             num[i] = sc.nextInt();
         }
         for (int i = 0; i < num.length; i++) {
+
             if (num[i] > max)
                 max = num[i];
-        }
-        for (int i = 0; i < num.length; i++) {
-            if (num[i] < min)
+            else if (num[i] < min)
                 min = num[i];
         }
         System.out.println("minimium number in array is " + min);
