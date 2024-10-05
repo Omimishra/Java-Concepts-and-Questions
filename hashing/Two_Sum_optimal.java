@@ -1,7 +1,5 @@
 package hashing;
-
 import java.util.*;
-
 public class Two_Sum_optimal {
     public int[] twoSum(int[] nums, int target) {
         // pointers approach O(n)
@@ -35,7 +33,6 @@ public class Two_Sum_optimal {
         }
         return new int[] {};
     }
-
     public static void main(String[] args) {
         Two_Sum_optimal sc = new Two_Sum_optimal();
         int[] nums = { 2, 7, 11, 15 };
