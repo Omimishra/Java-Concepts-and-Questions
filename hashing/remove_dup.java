@@ -33,10 +33,10 @@ public class remove_dup {
         // int n = remove_hash(arr);
         int n = remove(arr);
         System.out.println(n);
-        // System.out.println("array after removing duplicates");
-        // for (int i=0;i<n;i++){
-        // System.out.print(arr[i]+" ");
-        // }
+        System.out.println("array after removing duplicates");
+        for (int i=0;i<n;i++){
+        System.out.print(arr[i]+" ");
+        }
 
     }
 }
