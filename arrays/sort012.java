@@ -3,6 +3,7 @@ package arrays;
 public class sort012 {
 
     public static void sortarray(int arr[]) {
+        @SuppressWarnings("unused")
         int ct0 = 0, ct1 = 0, ct2 = 0;
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == 0)
