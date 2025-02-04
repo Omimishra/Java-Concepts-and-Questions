@@ -15,8 +15,16 @@ public class find_single_element {
         }
         return -1;
     }
+    public static int xor(int[]a){
+        int xor1=0;
+        for(int i =0;i<a.length;i++){
+            xor1^=a[i];
+        }
+        return xor1;
+    }
     public static void main(String[] args) {
 int a[] = {1, 2, 3, 4, 5, 1, 2, 3, 4};
-System.out.println(brute_force(a));
+// System.out.println(brute_force(a));
+System.out.println(xor(a));
     }
 }
