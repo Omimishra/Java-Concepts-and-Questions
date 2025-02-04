@@ -1,4 +1,4 @@
-package hashing;
+package arrays.medium;
 
 import java.util.*;
 

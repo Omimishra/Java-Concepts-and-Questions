@@ -1,4 +1,4 @@
-package arrays;
+package arrays.easy;
 
 public class longest_subarray_sum {
     public static int lenOfLongSubarr(int A[], int n, int k) {

@@ -1,4 +1,4 @@
-package arrays;
+package arrays.easy;
 public class Count_max_1 {
 
     public static int count_max_1(int[] a) {

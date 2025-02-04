@@ -1,4 +1,4 @@
-package arrays;
+package arrays.easy;
 
 public class rotate_array {
     // not for edge cases

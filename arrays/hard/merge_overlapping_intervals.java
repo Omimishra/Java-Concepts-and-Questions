@@ -1,4 +1,4 @@
-package arrays;
+package arrays.hard;
 import java.util.*;
 public class merge_overlapping_intervals {
     public static List<List<Integer>> merge(int arr[][]){

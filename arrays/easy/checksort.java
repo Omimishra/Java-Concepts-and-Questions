@@ -1,4 +1,4 @@
-package recursion;
+package arrays.easy;
 
 public class checksort {
     public static boolean check(int arr[],int i){

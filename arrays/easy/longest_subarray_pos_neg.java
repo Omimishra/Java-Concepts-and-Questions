@@ -1,4 +1,4 @@
-package hashing;
+package arrays.easy;
 
 import java.util.HashMap;
 // Length of longest subarray when it contains both positive and negative elements

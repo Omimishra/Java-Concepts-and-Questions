@@ -1,4 +1,4 @@
-package arrays;
+package arrays.medium;
 
 public class rotate_matrix_90 {
     public static int[][] rotate(int[][] matrix) {

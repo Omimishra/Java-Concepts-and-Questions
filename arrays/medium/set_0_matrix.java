@@ -1,4 +1,4 @@
-package arrays;
+package arrays.medium;
 
 public class set_0_matrix {
     public static int[][] change(int A[][])    {

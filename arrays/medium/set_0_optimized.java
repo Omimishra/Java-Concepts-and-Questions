@@ -1,4 +1,4 @@
-package arrays;
+package arrays.medium;
 public class set_0_optimized {
     static int[] [] zeroMatrix(int matrix [][], int n, int m) {
         // int[] row = new int[n]; --> matrix[..][0]

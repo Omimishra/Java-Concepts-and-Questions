@@ -1,4 +1,4 @@
-package arrays;
+package arrays.medium;
 import java.util.*;
 public class leader {
     public static ArrayList<Integer> leaders(int arr[], int n) {

@@ -1,4 +1,4 @@
-package arrays;
+package arrays.easy;
 //finding the missing number within a range of array 0 to n
 public class find_missing_no {
     public static int find(int a[]){ // summation formula

@@ -1,4 +1,4 @@
-package hashing;
+package arrays.medium;
 import java.util.*;
 public class Two_Sum_optimal {
     public int[] twoSum(int[] nums, int target) {
