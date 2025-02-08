@@ -1,4 +1,5 @@
 package arrays.medium;
+
 public class next_permutation {
 
     public static void nextGreaterPermutation(int arr[]) {
@@ -19,18 +20,20 @@ public class next_permutation {
         }
         // Step 2: Find the next greater element
         // and swap it with arr[ind]:
-        for (int i = n - 1; i > ind; i--) {
-            if (arr[i] > arr[ind]) {
-                int tmp = arr[i];
-                arr[i] = arr[ind];
-                arr[ind] = tmp;
-                break;
+        else {
+            for (int i = n - 1; i > ind; i--) {
+                if (arr[i] > arr[ind]) {
+                    int tmp = arr[i];
+                    arr[i] = arr[ind];
+                    arr[ind] = tmp;
+                    break;
+                }
             }
         }
-
         // Step 3: Reverse the array from ind+1 to n-1:
         reverse(arr, ind + 1);
     }
+
     public static void reverse(int arr[], int start) {
         int i = start, j = arr.length - 1;
         while (i < j) {
@@ -40,9 +43,10 @@ public class next_permutation {
             i++;
             j--;
         }
-        }
+    }
+
     public static void main(String args[]) {
-        int arr [] = { 2, 1, 5, 4, 3, 0, 0 };
+        int arr[] = { 2, 1, 5, 4, 3, 0, 0 };
         nextGreaterPermutation(arr);
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
