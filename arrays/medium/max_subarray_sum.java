@@ -1,5 +1,5 @@
 package arrays.medium;
-
+// kandane's algorithm
 public class max_subarray_sum {
     
 public static int maxSum(int arr[]){

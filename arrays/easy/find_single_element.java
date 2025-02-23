@@ -1,4 +1,4 @@
-package arrays;
+package arrays.easy;
 import java.util.HashMap;
 public class find_single_element {
     public static int brute_force(int[] a) {
