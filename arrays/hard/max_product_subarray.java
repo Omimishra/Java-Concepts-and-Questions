@@ -1,5 +1,5 @@
 package arrays.hard;
-
+// based on kandane's algorithm
 public class max_product_subarray {
     public static int maxProduct(int[] nums) {
         int n = nums.length;
