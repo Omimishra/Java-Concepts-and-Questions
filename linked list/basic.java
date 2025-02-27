@@ -10,7 +10,7 @@ public class basic {
         }
 
     }
-
+//constructing linked list using array
     static node constructLL(int arr[]) {
         if (arr.length == 0) {
             return null;
@@ -23,19 +23,6 @@ public class basic {
         }
         return head;
     }
-
-    public node insertAtFirst(int data) {
-        node newNode = new node(data);
-        if(head==null){
-            head=newNode;
-            return head;
-        }
-        newNode.next = head;
-        head=newNode;
-        return head;
-    }
-    
-
     public static void main(String[] args) {
         int arr[] = { 1, 2, 3, 4, 5 };
         // for(int i =0;i<arr.length;i++){
