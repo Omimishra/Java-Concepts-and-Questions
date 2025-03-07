@@ -1,7 +1,6 @@
 
 public class reverseiterate {
     Node head;
-
     class Node {
         int data;
         Node next;
@@ -12,21 +11,20 @@ public class reverseiterate {
         }
     }
 
-    public void addLast(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = newNode;
-            return;
-        }
-        Node currNode = head;
-        while (currNode.next != null) {
-            currNode = currNode.next;
-
-        }
-        currNode.next = newNode;
+   public Node constructLL(int arr[]){
+    if (arr.length==0){
+        return null;
     }
+    Node head = new Node(arr[0]);
+    Node temp = head;
+    for (int i = 1; i < arr.length; i++) {
+        temp.next = new Node(arr[i]);
+        temp = temp.next;
+    }
+    return head;
+   }
 
-    public void printlist() {
+    public void printlist(Node head) {
 
         if (head == null) {
             System.out.println("List is empty");
@@ -43,14 +41,10 @@ public class reverseiterate {
 
     }
 
-    public void reverselist() {
+    public Node reverselist(Node head) {
 
-        if (head == null || head.next == null) {
-            return;
-        }
-
-        Node prevnode = head;
-        Node currNode = head.next;
+        Node prevnode = null;
+        Node currNode = head;
 
         while (currNode != null) {
             Node nextnode = currNode.next;
@@ -60,21 +54,17 @@ public class reverseiterate {
             prevnode = currNode;
             currNode = nextnode;
         }
-        head.next = null;
-        head = prevnode;
+        return prevnode;
     }
 
     public static void main(String[] args) {
         reverseiterate list = new reverseiterate();
-        list.addLast(1);
-        list.addLast(2);
-        list.addLast(3);
-        list.addLast(4);
-        list.addLast(5);
-        list.printlist();
+        int arr[] = { 1, 2, 3, 4, 5 };
+        Node head = list.constructLL(arr);
+        list.printlist(head);
 
-        list.reverselist();
-        list.printlist();
+        head = list.reverselist(head);
+        list.printlist(head);
 
     }
 }
