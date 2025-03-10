@@ -2,7 +2,7 @@ import java.util.*;
 
 // make a linked list and add the following elements to it . search for the number 7 and display its index.
 
-public class q1 {
+public class search7inlist {
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();
         list.add(1);

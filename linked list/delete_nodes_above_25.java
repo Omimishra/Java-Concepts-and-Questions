@@ -1,7 +1,7 @@
 import java.util.*;
 
 // Take elements (numbers in the range of 1-50) of a linked list as input from the user . Delete all nodes which have values greater than 25
-public class q2 {
+public class delete_nodes_above_25 {
     @SuppressWarnings("resource")
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();
