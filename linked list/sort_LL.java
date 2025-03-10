@@ -48,25 +48,15 @@ static Node mergeTwoSortedLinkedLists(Node list1, Node list2) {
 
 // Function to find the middle of a linked list
 static Node findMiddle(Node head){
-    // If the list is empty or has only one node
-    // the middle is the head itself
     if (head == null || head.next == null) {
         return head;
     }
-
-    // Initializing slow and fast pointers
     Node slow = head;
     Node fast = head.next;
-
-    // Move the fast pointer twice
-    // as fast as the slow pointer
     while (fast != null && fast.next != null) {
         slow = slow.next;
         fast = fast.next.next;
     }
-    
-    // When the fast pointer reaches the end,
-    // the slow pointer will be at the middle
     return slow;
 }
 
