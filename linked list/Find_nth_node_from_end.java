@@ -1,6 +1,6 @@
 // import java.util.*;
 //Find the nth node from the end and remove it.
-public class q3 {
+public class Find_nth_node_from_end {
     Node head;
 
     class Node {
@@ -74,7 +74,7 @@ public class q3 {
     }
 
     public static void main(String[] args) {
-        q3 list = new q3();
+        Find_nth_node_from_end list = new Find_nth_node_from_end();
         list.addLast(1);
         list.addLast(2);
         list.addLast(3);

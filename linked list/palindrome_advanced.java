@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class q4 {
+public class palindrome_advanced {
     // check whether a linked list is palindrome or not by creating a new linked list
     public static void main(String[] args) {
         LinkedList<Integer> list = new LinkedList<>();
