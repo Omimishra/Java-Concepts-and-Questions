@@ -46,7 +46,8 @@ public class recursionrev {
         }
 
         Node newhead = reverselist(head.next);
-        head.next.next = head;
+        Node front = head.next;
+        front.next = head;
         head.next = null;
 
         return newhead;
