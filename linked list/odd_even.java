@@ -1,4 +1,4 @@
-
+//to seggregate the even and odd nodes based on their values
 class ListNode
 {
     int val;
