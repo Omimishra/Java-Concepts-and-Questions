@@ -38,8 +38,10 @@ static Node mergeTwoSortedLinkedLists(Node list1, Node list2) {
     // elements, append them to the merged list
     if (list1 != null) {
         temp.next = list1;
+        list1 = list1.next;
     } else {
         temp.next = list2;
+        list2 = list2.next;
     }
     // Return the merged list starting 
     // from the next of the dummy node
