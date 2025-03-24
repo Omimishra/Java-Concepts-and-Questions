@@ -1,7 +1,4 @@
 public class sort_LL {
-                                    
-// Node class represents a
-// node in a linked list
 static class Node {
     int data;
     Node next;
@@ -10,41 +7,31 @@ static class Node {
         next = null;
     }
 }
-
 // Function to merge two sorted linked lists
-static Node mergeTwoSortedLinkedLists(Node list1, Node list2) {
-    // Create a dummy node to serve
-    // as the head of the merged list
+static Node mergeTwoSortedLinkedLists(Node left, Node right) {
     Node dummyNode = new Node(-1);
     Node temp = dummyNode;
-
-    // Traverse both lists simultaneously
-    while (list1 != null && list2 != null) {
+    while (left != null && right != null) {
         // Compare elements of both lists and
         // link the smaller node to the merged list
-        if (list1.data <= list2.data) {
-            temp.next = list1;
-            list1 = list1.next;
+        if (left.data <= right.data) {
+            temp.next = left;
+            left = left.next;
         } else {
-            temp.next = list2;
-            list2 = list2.next;
+            temp.next = right;
+            right = right.next;
         }
-        // Move the temporary pointer
-        // to the next node
         temp = temp.next; 
     }
-
     // If any list still has remaining
     // elements, append them to the merged list
-    if (list1 != null) {
-        temp.next = list1;
-        list1 = list1.next;
+    if (left != null) {
+        temp.next = left;
+        left = left.next;
     } else {
-        temp.next = list2;
-        list2 = list2.next;
+        temp.next = right;
+        right = right.next;
     }
-    // Return the merged list starting 
-    // from the next of the dummy node
     return dummyNode.next;
 }
 
@@ -83,19 +70,12 @@ static Node sortLL(Node head){
     // Recursively sort the left and right halves
     left = sortLL(left);
     right = sortLL(right);
-    
-    // Merge the sorted halves using the
-    // mergeTwoSortedLinkedLists function
     return mergeTwoSortedLinkedLists(left, right);
 }
-
-// Function to print the linked list
 static void printLinkedList(Node head) {
     Node temp = head;
     while (temp != null) {
-        // Print the data of the current node
         System.out.print(temp.data + " "); 
-        // Move to the next node
         temp = temp.next; 
     }
     System.out.println();
