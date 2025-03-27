@@ -1,4 +1,4 @@
-package linked_list;
+
 public class sort012inLL {
     static class Node{
         int data;

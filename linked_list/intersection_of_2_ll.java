@@ -1,4 +1,4 @@
-package linked_list;
+
 import java.util.*;
 class Node {
     int data;

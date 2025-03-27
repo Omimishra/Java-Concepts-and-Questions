@@ -3,8 +3,8 @@ class Node {
   int num;
   Node next;
   Node(int a) {
-    num = a;
-    next = null;
+    this.num = a;
+    this.next = null;
   }
 }
 class rotate_ll {

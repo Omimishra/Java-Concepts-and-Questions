@@ -1,3 +1,4 @@
+
 public class basic {
     node head;
     static class node {

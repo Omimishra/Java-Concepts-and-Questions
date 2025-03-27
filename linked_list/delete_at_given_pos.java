@@ -1,3 +1,4 @@
+
 public class delete_at_given_pos {
     class Node {
         int data;
