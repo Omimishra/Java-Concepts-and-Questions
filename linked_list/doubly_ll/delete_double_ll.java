@@ -1,3 +1,4 @@
+package linked_list.doubly_ll;
 public class delete_double_ll {
     class node{
         int data;
