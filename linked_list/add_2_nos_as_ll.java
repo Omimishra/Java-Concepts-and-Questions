@@ -10,8 +10,6 @@ public class add_2_nos_as_ll {
             this.next = next; 
         }
     }
-    // Source: https://leetcode.com/problems/add-two-numbers/
-
         public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
             ListNode dummy = new ListNode(); 
             ListNode temp = dummy; 

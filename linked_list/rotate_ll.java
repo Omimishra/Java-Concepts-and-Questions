@@ -45,6 +45,7 @@ class rotate_ll {
   }
 
   public static void main(String args[]) {
+    // rotate_ll obj = new rotate_ll();
     Node head = null;
     //inserting Node
     head = insertNode(head, 1);
