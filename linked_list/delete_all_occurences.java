@@ -1,4 +1,4 @@
-public class delete_all_performances {
+public class delete_all_occurences {
     class Node {
         int data;
         Node next;
@@ -33,7 +33,7 @@ public class delete_all_performances {
         return head;
     }
     public static void main(String[] args) {
-        delete_all_performances obj = new delete_all_performances();
+        delete_all_occurences obj = new delete_all_occurences();
         Node head = obj.new Node(1);
         head.next = obj.new Node(2);
         head.next.next = obj.new Node(2);
