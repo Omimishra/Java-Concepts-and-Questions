@@ -31,8 +31,8 @@ public class delete_double_ll {
         while(curr.next!=null){
             curr = curr.next;
         }
-        node previous = curr.back;
-        previous.next = null;
+        node backious = curr.back;
+        backious.next = null;
         curr.back = null;
         return head;
     }
@@ -45,6 +45,35 @@ public class delete_double_ll {
         newHead.back = null;
         head.next = null;
         return newHead;
+    }
+    public node deleteNode(node head, int x) {
+        // If the position to delete is the head node
+        if (x == 1) {
+            if (head == null || head.next == null) {
+                return null; // If the list is empty or has only one node, return null
+            }
+            node newhead = head.next;
+            newhead.back = null;
+            head.next = null;
+            return newhead;
+        }
+        node current = head;
+        for (int i = 1; i < x; i++) {
+            current = current.next;
+        }
+        // If the node to delete is the tail node
+        if (current.next == null) {
+            node temp = current.back;
+            temp.next = null;
+            current.back = null;
+            return head;
+        }
+        // If the node to delete is in the middle
+        node previous = current.back;
+        node after = current.next;
+        previous.next = after;
+        after.back = previous;
+        return head;
     }
     public static void main(String[] args) {
         delete_double_ll d = new delete_double_ll();

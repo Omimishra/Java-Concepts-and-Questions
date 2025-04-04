@@ -3,12 +3,10 @@ public class delete_at_given_pos {
     class Node {
         int data;
         Node next;
-        Node prev;
 
         Node(int data) {
             this.data = data;
             this.next = null;
-            this.prev = null;
         }
     }
 
@@ -20,7 +18,6 @@ public class delete_at_given_pos {
         Node currNode = head;
         for (int i = 1; i < arr.length; i++) {
             currNode.next = new Node(arr[i]);
-            currNode.next.prev = currNode;
             currNode = currNode.next;
         }
         return head;
@@ -28,31 +25,28 @@ public class delete_at_given_pos {
 
     public Node deleteNode(Node head, int x) {
         // If the position to delete is the head node
-        if (x == 1) {
+        if (x == 0) {
             if (head == null || head.next == null) {
                 return null; // If the list is empty or has only one node, return null
             }
-            Node newhead = head.next;
-            newhead.prev = null;
-            head.next = null;
-            return newhead;
+            return head.next;
         }
         Node current = head;
-        for (int i = 1; i < x; i++) {
+        for (int i = 0; i < x; i++) {
             current = current.next;
+        }
+        Node temp = head;
+        while(temp.next!=current){
+            temp=temp.next;
         }
         // If the node to delete is the tail node
         if (current.next == null) {
-            Node temp = current.prev;
-            temp.next = null;
-            current.prev = null;
+            temp.next.next = null;
             return head;
         }
         // If the node to delete is in the middle
-        Node previous = current.prev;
-        Node after = current.next;
-        previous.next = after;
-        after.prev = previous;
+        temp.next = current.next;
+        current.next = null;
         return head;
     }
 

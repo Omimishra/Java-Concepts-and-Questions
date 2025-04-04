@@ -1,30 +1,13 @@
 public class delete_middle {
-// Node class represents a node in a linked list
 class Node {
-    // Data stored in the node
     int data; 
-     // Pointer to the next node in the list
     Node next;     
-
-    // Constructor with both data
-    // and next node as parameters
-    Node(int data, Node next) {
-        this.data = data;
-        this.next = next;
-    }
-
-    // Constructor with only data as
-    // a parameter, sets next to null
     Node(int data) {
         this.data = data;
         this.next = null;
     }
-}    
-    // Function to delete the
-    // middle node of a linked list
+}
     static Node deleteMiddle(Node head) {
-        /* If the list is empty or has only one node,
-           return null as there is no middle node to delete */
         if (head == null || head.next == null) {
             return null;
         }
