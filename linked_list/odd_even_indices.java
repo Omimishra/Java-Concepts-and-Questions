@@ -1,20 +1,20 @@
 // Source: https://leetcode.com/problems/odd-even-linked-list/
-class node{
+class Node{
     int data;
-    node next;
-    node(int data)
+    Node next;
+    Node(int data)
     {
         this.data = data;
         this.next = null;
     }
 }
 public class odd_even_indices {
-    public node oddEvenList(node head) {
+    public Node oddEvenList(Node head) {
         if(head==null||head.next==null)
         return head;
-        node odd = head;
-        node even = head.next;
-        node evenhead=even;
+        Node odd = head;
+        Node even = head.next;
+        Node evenhead=even;
         while(even!=null && even.next!=null){
             odd.next=even.next;
             odd=odd.next;
@@ -24,8 +24,8 @@ public class odd_even_indices {
     odd.next=evenhead;
     return head;
 }
-public static void printLinkedList(node head) {
-    node currNode = head;
+public static void printLinkedList(Node head) {
+    Node currNode = head;
     while (currNode != null) {
         System.out.print(currNode.data + " -> ");
         currNode = currNode.next;
@@ -35,13 +35,13 @@ public static void printLinkedList(node head) {
 }
 public static void main(String[] args) {
     odd_even_indices obj = new odd_even_indices();
-    node head = new node(10);
-    head.next = new node(20);
-    head.next.next = new node(5);
-    head.next.next.next = new node(8);
-    head.next.next.next.next = new node(9);
-    head.next.next.next.next.next = new node(4);
-    head.next.next.next.next.next.next = new node(1);
+    Node head = new Node(10);
+    head.next = new Node(20);
+    head.next.next = new Node(5);
+    head.next.next.next = new Node(8);
+    head.next.next.next.next = new Node(9);
+    head.next.next.next.next.next = new Node(4);
+    head.next.next.next.next.next.next = new Node(1);
     System.out.println("Original Linked list:");
     printLinkedList(head);
     head = obj.oddEvenList(head);

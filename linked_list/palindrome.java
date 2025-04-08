@@ -1,27 +1,27 @@
-class node {
+class Node {
     int data;
-    node next;
+    Node next;
 
-    node(int data) {
+    Node(int data) {
         this.data = data;
         this.next = null;
     }
 }
 public class palindrome {
     // check whether a linked list is palindrome or not by not using extra space
-    public static node reverselist(node head) {
+    public static Node reverselist(Node head) {
         if (head == null || head.next == null){
             return head;
             }
-            node newhead = reverselist(head.next);
+            Node newhead = reverselist(head.next);
             head.next.next = head;
             head.next = null;
             return newhead;
         }
 
-    public static node findmiddle(node head) {
-        node hare = head;
-        node turtle = head;
+    public static Node findmiddle(Node head) {
+        Node hare = head;
+        Node turtle = head;
 
         while (hare.next != null && hare.next.next != null) {
             hare = hare.next.next; // jumps by 2 steps
@@ -31,13 +31,13 @@ public class palindrome {
         return turtle; // middle of linked list
     }
 
-    public static boolean ispalindrome(node head) {
+    public static boolean ispalindrome(Node head) {
         if (head == null || head.next == null) {
             return true;
         }
-        node middle = findmiddle(head); // 1st half ka end
-        node secondHalfStart = reverselist(middle.next);
-        node firstHalfStart = head;
+        Node middle = findmiddle(head); // 1st half ka end
+        Node secondHalfStart = reverselist(middle.next);
+        Node firstHalfStart = head;
         while (secondHalfStart != null) {
             if (firstHalfStart.data != secondHalfStart.data) {
                 return false;
@@ -47,8 +47,8 @@ public class palindrome {
         }
         return true;
     }
-public static void printLinkedList(node head) {
-        node currNode = head;
+public static void printLinkedList(Node head) {
+        Node currNode = head;
         while (currNode != null) {
             System.out.print(currNode.data + " -> ");
             currNode = currNode.next;
@@ -56,11 +56,11 @@ public static void printLinkedList(node head) {
         System.out.println("null");
     }
     public static void main(String[] args) {
-       node head = new node(1);
-        head.next = new node(5);
-        head.next.next = new node(2);
-        head.next.next.next = new node(5);
-        head.next.next.next.next = new node(1);
+       Node head = new Node(1);
+        head.next = new Node(5);
+        head.next.next = new Node(2);
+        head.next.next.next = new Node(5);
+        head.next.next.next.next = new Node(1);
 
         // Print the original linked list
         System.out.print("Original Linked List: ");
