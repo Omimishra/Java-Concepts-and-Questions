@@ -1,13 +1,13 @@
-class Node {
-    int data;
-    Node next;
-
-    Node(int data) {
-        this.data = data;
-        this.next = null;
-    }
-}
 public class palindrome {
+    class Node {
+        int data;
+        Node next;
+    
+        Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
     // check whether a linked list is palindrome or not by not using extra space
     public static Node reverselist(Node head) {
         if (head == null || head.next == null){
@@ -56,11 +56,13 @@ public static void printLinkedList(Node head) {
         System.out.println("null");
     }
     public static void main(String[] args) {
-       Node head = new Node(1);
-        head.next = new Node(5);
-        head.next.next = new Node(2);
-        head.next.next.next = new Node(5);
-        head.next.next.next.next = new Node(1);
+        palindrome obj = new palindrome();
+        // Create a linked list: 1 -> 5 -> 2 -> 5 -> 1
+       Node head = obj.new Node(1);
+        head.next = obj.new Node(5);
+        head.next.next = obj.new Node(2);
+        head.next.next.next = obj.new Node(5);
+        head.next.next.next.next = obj.new Node(1);
 
         // Print the original linked list
         System.out.print("Original Linked List: ");

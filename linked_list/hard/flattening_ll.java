@@ -3,9 +3,6 @@ class Node {
     int data;
     Node next;
     Node child;
-    
-    // Constructors to initialize the
-    // data, next, and child pointers
     Node() {
         this.data = 0;
         this.next = null;
@@ -29,12 +26,8 @@ public class flattening_ll {
     // Merges two linked lists in a particular
     // order based on the data value
     public static Node merge(Node list1, Node list2) {
-        // Create a dummy node as a
-        // placeholder for the result
         Node dummyNode = new Node(-1);
         Node res = dummyNode;
-
-        // Merge the lists based on data values
         while (list1 != null && list2 != null) {
             if (list1.data < list2.data) {
                 res.child = list1;
@@ -47,41 +40,24 @@ public class flattening_ll {
             }
             res.next = null;
         }
-
-        // Connect the remaining
-        // elements if any
         if (list1 != null) {
             res.child = list1;
         } else {
             res.child = list2;
         }
-
-        // Break the last node's
-        // link to prevent cycles
         if (dummyNode.child != null) {
             dummyNode.child.next = null;
         }
-
         return dummyNode.child;
     }
-
-    // Flattens a linked list with child pointers
     public static Node flattenLinkedList(Node head) {
-        // If head is null or there
-        // is no next node, return head
         if (head == null || head.next == null) {
             return head;
         }
-
-        // Recursively flatten the
-        // rest of the linked list
-        Node mergedHead = flattenLinkedList(head.next);
+ Node mergedHead = flattenLinkedList(head.next);
         head = merge(head, mergedHead);
         return head;
     }
-
-    // Print the linked list by
-    // traversing through child pointers
     public static void printLinkedList(Node head) {
         while (head != null) {
             System.out.print(head.data + " ");
@@ -89,23 +65,14 @@ public class flattening_ll {
         }
         System.out.println();
     }
-
-    // Print the linked list
-    // in a grid-like structure
     public static void printOriginalLinkedList(Node head, int depth) {
         while (head != null) {
             System.out.print(head.data);
-
-            // If child exists, recursively
-            // print it with indentation
             if (head.child != null) {
                 System.out.print(" -> ");
                 printOriginalLinkedList(head.child, depth + 1);
             }
-
-            // Add vertical bars
-            // for each level in the grid
-            if (head.next != null) {
+                if (head.next != null) {
                 System.out.println();
                 for (int i = 0; i < depth; ++i) {
                     System.out.print("| ");
