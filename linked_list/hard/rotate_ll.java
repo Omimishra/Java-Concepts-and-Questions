@@ -1,18 +1,18 @@
 package hard;
 // Source: https://www.geeksforgeeks.org/rotate-a-linked-list/
-class Node {
-  int num;
-  Node next;
-
-  Node(int a) {
-    this.num = a;
-    this.next = null;
-  }
-}
 
 class rotate_ll {
+  class Node {
+    int num;
+    Node next;
+  
+    Node(int a) {
+      this.num = a;
+      this.next = null;
+    }
+  }
   // utility function to insert node at the end of the list
-  static Node insertNode(Node head, int val) {
+  Node insertNode(Node head, int val) {
     Node newNode = new Node(val);
     if (head == null) {
       head = newNode;
@@ -25,8 +25,7 @@ class rotate_ll {
     temp.next = newNode;
     return head;
   }
-
-  static Node findNthNode(Node head, int n) {
+Node findNthNode(Node head, int n) {
     Node temp = head;
     int cnt = 1;
     while (temp != null) {
@@ -39,7 +38,7 @@ class rotate_ll {
   }
 
   // utility function to rotate list by k times
-  static Node rotateRight(Node head, int k) {
+  Node rotateRight(Node head, int k) {
     if (head == null || head.next == null)
       return head;
     Node tail = head;
@@ -58,8 +57,7 @@ class rotate_ll {
     return head;
   }
 
-  // utility function to print list
-  static void printList(Node head) {
+  void printList(Node head) {
     while (head.next != null) {
       System.out.print(head.num + "->");
       head = head.next;
@@ -69,23 +67,23 @@ class rotate_ll {
   }
 
   public static void main(String args[]) {
-    // rotate_ll obj = new rotate_ll();
+    rotate_ll obj = new rotate_ll();
     Node head = null;
     // inserting Node
-    head = insertNode(head, 1);
-    head = insertNode(head, 2);
-    head = insertNode(head, 3);
-    head = insertNode(head, 4);
-    head = insertNode(head, 5);
+    head = obj.insertNode(head, 1);
+    head = obj.insertNode(head, 2);
+    head = obj.insertNode(head, 3);
+    head = obj.insertNode(head, 4);
+    head = obj.insertNode(head, 5);
 
     System.out.println("Original list: ");
-    printList(head);
+    obj.printList(head);
     int k = 2;
-    Node newHead = rotateRight(head, k); // calling function for rotating
+    Node newHead = obj.rotateRight(head, k); // calling function for rotating
     // right of the nodes by k times
 
     System.out.println("After " + k + " iterations: ");
-    printList(newHead); // list after rotating nodes
+    obj.printList(newHead); // list after rotating nodes
 
   }
 }
