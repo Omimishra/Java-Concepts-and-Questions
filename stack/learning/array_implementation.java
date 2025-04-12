@@ -1,5 +1,18 @@
 package stack.learning;
 public class array_implementation {
+    public static void main(String[] args) {
+    
+        stack s = new stack();
+        s.push(6);
+        s.push(3);
+        s.push(7);
+        System.out.println("Top of the stack before deleting any element " + s.peek());
+        System.out.println("Size of the stack before deleting any element " + s.size());
+        System.out.println("The element deleted is " + s.pop());
+        System.out.println("Size of the stack after deleting an element " + s.size());
+        System.out.println("Top of the stack after deleting an element " + s.peek());
+    }
+    }
     // stack implementation using array
     class stack{
         int size=1000;
@@ -32,4 +45,3 @@ public class array_implementation {
             return top+1;
         }
     }
-}
