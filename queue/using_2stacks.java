@@ -12,6 +12,10 @@ public class using_2stacks {
         }
 
         public static void add(int data) {
+            // pop all elements from s1 and push them in s2
+            // push the element in s1
+            // pop all elements from s2 and push them in s1
+            // this way the element will be at the bottom of s1 and all other elements will be above it
             while (!s1.isEmpty()) {
                 s2.push(s1.pop());
             }
@@ -21,7 +25,6 @@ public class using_2stacks {
                 s1.push(s2.pop());
             }
         }
-
         public static int remove() {
             if (isEmpty()) {
                 System.out.println("empty queue");
