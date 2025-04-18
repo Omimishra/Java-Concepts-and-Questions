@@ -1,23 +1,22 @@
 package stack.notations;
+
 import java.util.Stack;
 
 public class InfixToPostfix {
-  // A utility function to return
-  // precedence of a given operator
-  // Higher returned value means
-  // higher precedence
-  static int Prec(char ch) {
+  // A utility function to return precedence of a given operator
+  // Higher returned value means higher precedence
+  static int priority(char ch) {
     switch (ch) {
-    case '+':
-    case '-':
-      return 1;
+      case '+':
+      case '-':
+        return 1;
 
-    case '*':
-    case '/':
-      return 2;
+      case '*':
+      case '/':
+        return 2;
 
-    case '^':
-      return 3;
+      case '^':
+        return 3;
     }
     return -1;
   }
@@ -25,15 +24,15 @@ public class InfixToPostfix {
   // The main method that converts
   // given infix expression
   // to postfix expression.
-  static String infixToPostfix(String exp) {
+  static String infixToPostfix(String str) {
     // initializing empty String for result
     String result = new String("");
 
     // initializing empty stack
-    Stack < Character > stack = new Stack < > ();
+    Stack<Character> stack = new Stack<>();
 
-    for (int i = 0; i < exp.length(); ++i) {
-      char c = exp.charAt(i);
+    for (int i = 0; i < str.length(); ++i) {
+      char c = str.charAt(i);
 
       // If the scanned character is an
       // operand, add it to output.
@@ -49,16 +48,13 @@ public class InfixToPostfix {
       // pop and output from the stack
       // until an '(' is encountered.
       else if (c == ')') {
-        while (!stack.isEmpty() &&
-          stack.peek() != '(')
+        while (!stack.isEmpty() && stack.peek() != '(')
           result += stack.pop();
 
         stack.pop();
       } else // an operator is encountered
       {
-        while (!stack.isEmpty() && Prec(c) <=
-          Prec(stack.peek())) {
-
+        while (!stack.isEmpty() && priority(c) <= priority(stack.peek())) {
           result += stack.pop();
         }
         stack.push(c);
@@ -79,7 +75,6 @@ public class InfixToPostfix {
   public static void main(String[] args) {
     String exp = "(p+q)*(m-n)";
     System.out.println("Infix expression: " + exp);
-    System.out.println("Prefix expression: " + infixToPostfix(exp));
+    System.out.println("Postfix expression: " + infixToPostfix(exp));
   }
 }
-
