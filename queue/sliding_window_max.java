@@ -8,7 +8,8 @@ public class sliding_window_max {
         int ri = 0;
         // store index
         Deque < Integer > q = new ArrayDeque < > ();
-        for (int i = 0; i < a.length; i++) {
+        // process first k (or first window) elements of array
+        for (int i = 0; i < k; i++) {
             // remove numbers out of range k
             if (!q.isEmpty() && q.peek() == i - k) {
                 q.poll();
@@ -18,7 +19,8 @@ public class sliding_window_max {
                 q.pollLast();
             }
 
-            q.offer(i);
+            q.offer(i); // add new number at the end of deque
+
             if (i >= k - 1) {
                 r[ri++] = a[q.peek()];
             }
