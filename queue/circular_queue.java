@@ -14,14 +14,21 @@ public class circular_queue {
         }
 
         public static boolean isEmpty() {
+            // if both front and rear are -1, then queue is empty
+            // if front is -1, then queue is empty
             return rear == -1 && front == -1;
         }
 
         public static boolean isFull() {
+            // if rear is equal to size-1, then queue is full
+            // if front is equal to 0, then queue is full
+            // if front is equal to rear+1, then queue is full
             return front == (rear + 1) % size;
         }
 
         public static void add(int data) {
+            // if queue is full, then we cannot add any more elements
+            // if rear is equal to size-1, then queue is full
             if (isFull()) {
                 System.out.println("queue is full");
                 return;
