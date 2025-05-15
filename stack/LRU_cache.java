@@ -2,18 +2,23 @@ package stack;
 import java.util.*;
 public class LRU_cache {
     Node head = new Node(0, 0), tail = new Node(0, 0);
-    Map < Integer, Node > map = new HashMap();
+    Map < Integer, Node > map = new HashMap<>();
     int capacity;
 
     public LRU_cache(int _capacity) {
+        //assigning values in the constructor
         capacity = _capacity;
         head.next = tail;
         tail.prev = head;
     }
 
     public int get(int key) {
-        if (map.containsKey(key)) {
+        if (map.containsKey(key)) { // check if the key is present
+            // if present, remove the node from its current position
             Node node = map.get(key);
+            // and insert it at the head of the list
+            // this will make it the most recently used node so that it can be removed last when the cache is full
+            // this is done by removing the node from its current position and inserting it at the head of the list
             remove(node);
             insert(node);
             return node.value;
@@ -26,6 +31,8 @@ public class LRU_cache {
         if (map.containsKey(key)) {
             remove(map.get(key));
         }
+        // if the key is not present, we need to check if the cache is full
+        // if it is full, we need to remove the least recently used node
         if (map.size() == capacity) {
             remove(tail.prev);
         }
@@ -33,12 +40,16 @@ public class LRU_cache {
     }
 
     private void remove(Node node) {
+        // remove the node from the list
+        // this is done by removing the node from its current position
         map.remove(node.key);
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
 
     private void insert(Node node) {
+        // insert the node at the head of the list
+        // this is done by inserting the node at the head of the list
         map.put(node.key, node);
         node.next = head.next;
         node.next.prev = node;
