@@ -49,8 +49,11 @@ class DoublyLinkedList{
 	}
 }
 class LFU_cache {
+	// This is a LFU (Least Frequently Used) Cache implementation
 HashMap<Integer,DoublyLinkedList> freqList=new HashMap<Integer,DoublyLinkedList>();
 	HashMap<Integer,Node> lfuCache =new HashMap<Integer,Node>(); 
+	// This is a HashMap to store the key and its corresponding node
+
 	int capacity;
 	int minFreq;
     public LFU_cache(int capacity) {
@@ -59,6 +62,9 @@ HashMap<Integer,DoublyLinkedList> freqList=new HashMap<Integer,DoublyLinkedList>
     }
     
     public int get(int key) {
+		// This method retrieves the value of the key if the key exists in the cache
+		// Otherwise, it returns -1
+
         if(lfuCache.get(key)==null)
         	return -1;
        	Node v=lfuCache.get(key);
@@ -69,11 +75,14 @@ HashMap<Integer,DoublyLinkedList> freqList=new HashMap<Integer,DoublyLinkedList>
             }
             	}
        	v.freq+=1;
+		// Update the frequency of the node
        	if(freqList.get(v.freq)==null){
        		DoublyLinkedList d=new DoublyLinkedList();
        		d.addNode(v);
        		freqList.put(v.freq,d);
        	}
+		// If the frequency list for the new frequency doesn't exist, create it
+
        	else{
        		freqList.get(v.freq).addNode(v);
        	}
@@ -83,6 +92,11 @@ HashMap<Integer,DoublyLinkedList> freqList=new HashMap<Integer,DoublyLinkedList>
     public void put(int key, int value) {
          if(capacity==0)
             return;
+	// This method adds a new key-value pair to the cache
+	// If the key already exists, update its value and frequency
+	// If the cache reaches its capacity, evict the least frequently used key
+	// If the key is not found, add it to the cache
+	// If the key is found, update its value and frequency
         if(lfuCache.get(key)!=null){
         	Node v=lfuCache.get(key);
         	freqList.get(v.freq).removeNode(v);
