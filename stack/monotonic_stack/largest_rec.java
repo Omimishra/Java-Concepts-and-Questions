@@ -8,6 +8,10 @@ public class largest_rec {
         int n = histo.length;
         for (int i = 0; i <n; i++) {
             while (!st.empty() && (histo[st.peek()] >= histo[i])) {
+                // pop the top element
+                // calculate the area with the popped element as the smallest (or minimum height) bar 'h'
+                // 'i' is 'right index' and element at top of stack is 'left index'
+                // 'h' is the height of the popped bar
                 int element = histo[st.peek()];
                 st.pop();
                 int nse = i;
@@ -17,6 +21,8 @@ public class largest_rec {
             st.push(i);
         }
         while (!st.empty()) {
+            //check for the remaining bars in stack and calculate area with every popped bar
+            // as the smallest (or minimum height) bar 'h'
             int element = histo[st.peek()];
             st.pop();
             int nse = n;
