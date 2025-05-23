@@ -9,7 +9,7 @@ public class sliding_window_max {
         // store index
         Deque < Integer > q = new ArrayDeque < > ();
         // process first k (or first window) elements of array
-        for (int i = 0; i < k; i++) {
+        for (int i = 0; i < a.length; i++) {
             // remove numbers out of range k
             if (!q.isEmpty() && q.peek() == i - k) {
                 q.poll();
