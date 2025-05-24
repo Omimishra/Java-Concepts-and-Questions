@@ -6,134 +6,100 @@ import java.util.HashMap;
 	int val;
 	Node next;
 	Node prev;
-	int freq=1;
+	int frequency;
 	Node(int k,int v){
-		key=k;
-		val=v;
+		this.key=k;
+		this.val=v;
+		this.frequency=1; // initializing frequency to 1 when the node is created
 	}
 }
 class DoublyLinkedList{
+	int size;
 	Node head;
 	Node tail;
 	DoublyLinkedList(){
+		size=0;
 		head=new Node(-1,-1);
 		tail=new Node(-1,-1);
 		head.next=tail;
 		tail.prev=head;
 	}
 	void addNode(Node v){
-		Node next=head.next;
-		head.next=v;
+		Node nextNode=head.next;
+		v.next=nextNode;
 		v.prev=head;
 		head.next=v;
-		v.next=next;
-		next.prev=v;
+		nextNode.prev=v;
+		size++;
 	}
-	Node removeNode(){
-		Node node=tail.prev;
-		node.prev.next=tail;
-		tail.prev=node.prev;
-		return node;
+	void removeNode(Node v){
+		Node prevnode=v.prev;
+		Node nextNode=v.next;
+		prevnode.next=nextNode;
+		nextNode.prev=prevnode;
+		size--;
 	}
-	Node removeNode(Node v){
-		Node prev=v.prev;
-		Node next=v.next;
-		prev.next=next;
-		next.prev=prev;
-		return v;
-	}
-	boolean isEmpty(){
-		if(head.next==tail)
-			return true;
-		return false;
-	}
+	
 }
 class LFU_cache {
 	// This is a LFU (Least Frequently Used) Cache implementation
-HashMap<Integer,DoublyLinkedList> freqList=new HashMap<Integer,DoublyLinkedList>();
-	HashMap<Integer,Node> lfuCache =new HashMap<Integer,Node>(); 
-	// This is a HashMap to store the key and its corresponding node
-
+HashMap<Integer,DoublyLinkedList> freqList;
+	HashMap<Integer,Node> lfuCache ;
 	int capacity;
 	int minFreq;
+	int curSize;
     public LFU_cache(int capacity) {
         this.capacity=capacity;
-        minFreq=1;
+		this.curSize=0;
+        this.minFreq=0;
+		this.freqList=new HashMap<>();
+		this.lfuCache=new HashMap<>();
     }
     
     public int get(int key) {
-		// This method retrieves the value of the key if the key exists in the cache
-		// Otherwise, it returns -1
-
-        if(lfuCache.get(key)==null)
-        	return -1;
-       	Node v=lfuCache.get(key);
-       	freqList.get(v.freq).removeNode(v);
-       	if(freqList.get(v.freq).isEmpty()){
-       		if(minFreq==v.freq){
-                minFreq=v.freq+1;
-            }
-            	}
-       	v.freq+=1;
-		// Update the frequency of the node
-       	if(freqList.get(v.freq)==null){
-       		DoublyLinkedList d=new DoublyLinkedList();
-       		d.addNode(v);
-       		freqList.put(v.freq,d);
-       	}
-		// If the frequency list for the new frequency doesn't exist, create it
-
-       	else{
-       		freqList.get(v.freq).addNode(v);
-       	}
-       	return v.val;
+		Node currNode = lfuCache.get(key);
+		if(currNode==null)
+			return -1;
+			updateNode(currNode);// this means that node already exists so we need to update its value as well as inc the frequency
+			return currNode.val;
+       
     }
     
     public void put(int key, int value) {
-         if(capacity==0)
-            return;
-	// This method adds a new key-value pair to the cache
-	// If the key already exists, update its value and frequency
-	// If the cache reaches its capacity, evict the least frequently used key
-	// If the key is not found, add it to the cache
-	// If the key is found, update its value and frequency
-        if(lfuCache.get(key)!=null){
-        	Node v=lfuCache.get(key);
-        	freqList.get(v.freq).removeNode(v);
-        	if(freqList.get(v.freq).isEmpty()){
-                if(minFreq==v.freq)
-        		minFreq=v.freq+1;
-        	}
-	       	v.freq+=1;
-	       	if(freqList.get(v.freq)==null){
-	       		 DoublyLinkedList d=new DoublyLinkedList();
-	       		d.addNode(v);
-	       		freqList.put(v.freq,d);
-	       	}
-	       	else{
-	       		freqList.get(v.freq).addNode(v);
-	       	}
-	       	v.val=value;
-	      }
-	      else{
-	     		if(lfuCache.size()==capacity){
-	     			Node v=freqList.get(minFreq).removeNode();
-	     			lfuCache.remove(v.key);			
-	     		}
-	     		Node newNode = new Node(key,value);
-	     		lfuCache.put(key,newNode);
-	     		if(freqList.get(1)!=null){
-	     			freqList.get(1).addNode(newNode);
-	     		}
-	     		else{
-	     			DoublyLinkedList d=new DoublyLinkedList();
-	     			d.addNode(newNode);
-	     			freqList.put(1,d);
-	     		}
-               minFreq=1;
-	      }
+         if(capacity == 0) return; // if capacity is 0, we can't add anything
+		 if(lfuCache.containsKey(key)) {
+			Node currNode = lfuCache.get(key);
+			currNode.val = value; // update the value of the node
+			updateNode(currNode); // update the frequency of the node
+		 } else {
+			curSize++;
+			if(curSize > capacity) {
+				DoublyLinkedList minFreqList = freqList.get(minFreq);
+				lfuCache.remove(minFreqList.tail.prev.key); // remove the least frequently used node
+				minFreqList.removeNode(minFreqList.tail.prev); // remove the node from the doubly linked list
+				curSize--;
     }
-
+	minFreq = 1; // reset the min frequency to 1
+			Node newNode = new Node(key, value);
+			DoublyLinkedList newList = freqList.getOrDefault(1, new DoublyLinkedList());
+			newList.addNode(newNode); // add the new node to the doubly linked list
+			freqList.put(1, newList); // update the frequency list
+			lfuCache.put(key, newNode); // add the node to the cache
+		}
+	}
+	
+public void updateNode(Node currNode){
+	int currfreq=currNode.frequency;
+	DoublyLinkedList currlist=freqList.get(currfreq);
+	currlist.removeNode(currNode);
+	if(currlist.size==0 && currfreq==minFreq){
+		minFreq++;
+	}
+	currNode.frequency++;
+	DoublyLinkedList newList=freqList.getOrDefault(currNode.frequency,new DoublyLinkedList());
+	newList.addNode(currNode);
+	freqList.put(currNode.frequency,newList);
+}
 // Your LFUCache object will be instantiated and called as such:
 // LFUCache obj = new LFUCache(capacity);
 // int param_1 = obj.get(key);

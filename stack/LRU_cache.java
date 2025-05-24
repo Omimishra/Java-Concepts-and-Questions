@@ -60,9 +60,11 @@ public class LRU_cache {
     class Node {
         Node prev, next;
         int key, value;
-        Node(int _key, int _value) {
-            key = _key;
-            value = _value;
+        Node(int key, int value) {
+            this.key = key;
+            this.value = value;
+            this.next = null;
+            this.prev = null;
         }
     }
 }
