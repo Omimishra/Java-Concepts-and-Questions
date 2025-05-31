@@ -24,7 +24,7 @@ public class largestoddnumber {
         largestoddnumber obj = new largestoddnumber();
         String num = "123456789";
         String result = obj.largestOddNumber(num);
-        System.out.println(result); // Output: 97531
+        System.out.println(result); 
     }
 }   
 
