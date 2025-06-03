@@ -5,10 +5,13 @@ public class anagram {
             return false;
         }
         int[] count = new int[26];
+        // Count the frequency of each character in both strings
+        // and compare them
         for (int i = 0; i < s.length(); i++) {
             count[s.charAt(i) - 'a']++;
             count[t.charAt(i) - 'a']--;
         }
+        // If all counts are zero, then the strings are anagrams
         for (int i = 0; i < count.length; i++) {
             if (count[i] != 0) {
                 return false;
