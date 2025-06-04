@@ -32,6 +32,14 @@ public class delete_all_occurences {
         }
         return head;
     }
+    public void display(Node head){
+        Node curr = head;
+        while (curr != null) {
+            System.out.print(curr.data + "->");
+            curr = curr.next;
+        }
+        System.out.println("null");
+    }
     public static void main(String[] args) {
         delete_all_occurences obj = new delete_all_occurences();
         Node head = obj.new Node(1);
@@ -39,6 +47,7 @@ public class delete_all_occurences {
         head.next.next = obj.new Node(2);
         head.next.next.next = obj.new Node(4);
         head.next.next.next.next =obj. new Node(5);
-        deleteAllOccurOfX(head, 0);
+        obj.display(head);
+        // deleteAllOccurOfX(head, 0);
     }
 }
