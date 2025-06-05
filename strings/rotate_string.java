@@ -5,6 +5,7 @@ public class rotate_string {
         if (s.length() != t.length()) {
             return false;
         }
+        //after combining the same string twice we can check if the rotated string is present in it
         String combined = s + s;
         return combined.contains(t);
     }

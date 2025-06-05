@@ -20,6 +20,7 @@ public class roman_to_int {
                 case 'M':
                 num=1000; break;
             }
+            // If the current numeral is less than the previous one, we subtract it; otherwise, we add it.
             if(num<prev)
             ans -= num;
             else
