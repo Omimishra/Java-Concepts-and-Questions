@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 
 public class roman_to_int {
      public int romanToInt(String s) {

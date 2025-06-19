@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 
 public class string_to_int {
     public int myAtoi(String s) {

@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 
 public class sum_of_beauty {
     public int beautySum(String s) {

@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;

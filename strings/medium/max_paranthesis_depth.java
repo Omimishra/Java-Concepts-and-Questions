@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 public class max_paranthesis_depth {
     public int maxDepth(String s) {
         int c = 0;

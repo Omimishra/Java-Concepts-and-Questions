@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 
 public class int_to_roman {
     public String intToRoman(int num) {

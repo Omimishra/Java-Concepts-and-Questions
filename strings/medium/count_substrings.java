@@ -1,4 +1,4 @@
-package strings;
+package strings.medium;
 public class count_substrings {
     //Given string s consisting only a,b,c. return the number of substrings containing at least one occurrence of all these characters a, b, and c.
     public static int countSubstring(String s) {
