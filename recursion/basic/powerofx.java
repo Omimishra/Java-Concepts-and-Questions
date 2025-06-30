@@ -1,4 +1,4 @@
-package recursion;
+package recursion.basic;
 public class powerofx {
     public static double myPow(double x, int n) {
         if (n == 0) {
