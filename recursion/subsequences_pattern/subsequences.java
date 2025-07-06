@@ -1,4 +1,4 @@
-package recursion;
+package recursion.subsequences_pattern;
 
 public class subsequences {
     public static void subs(String str, int i, String str1) {
@@ -11,7 +11,7 @@ public class subsequences {
         // choice of char to be in string
         subs(str, i + 1, str1 + currchar);
 
-        // choice of char to be in string
+        // choice of char not to be in string
         subs(str, i + 1, str1);
     }
 

@@ -19,7 +19,7 @@ public class uniquesubsequence {
         // choice of char to be in string
         subs(str, i + 1, str1 + currchar,set);
 
-        // choice of char to be in string
+        // choice of char not to be in string
         subs(str, i + 1, str1,set);
     }
 
