@@ -1,21 +1,34 @@
 package recursion;
 
-public class keypadcombination {
-    public static String keypad[] = { ".", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tu", "vwx", "yz" };
+import java.util.ArrayList;
+import java.util.List;
 
-    public static void printkeypadcombination(String n, int i, String res) {
-        if (i == n.length()) {
-            System.out.println(res);
-            return;
+public class keypadcombination {
+   public List<String> letterCombinations(String digits) {
+        String map[]={" "," ","abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        List<String> res=new ArrayList<>();
+        if(digits.length()==0) return res;
+        StringBuilder sb = new StringBuilder();
+        helper(digits,map,res,0,sb);
+        return res;
+    }
+    private void helper(String digits,String[] map,List<String> res,int ind , StringBuilder sb){
+        if(ind ==digits.length()){
+        res.add(sb.toString());
+        return;
         }
-        for (int j = 0; j < keypad[n.charAt(i) - '0'].length(); j++) {
-            char curr = keypad[n.charAt(i) - '0'].charAt(i);
-            printkeypadcombination(n, i + 1, res + curr);
+        String letters=map[digits.charAt(ind)-'0'];
+        for (int i =0;i<letters.length();i++){
+            sb.append(letters.charAt(i));
+            helper(digits,map,res,ind+1,sb);
+            sb.deleteCharAt(sb.length()-1);
         }
     }
 
     public static void main(String[] args) {
         String n = "23";
-        printkeypadcombination(n, 0, " ");
+        keypadcombination k = new keypadcombination();
+        List<String> ans = k.letterCombinations(n);
+        System.out.println("The combinations are: " + ans);
     }
 }
