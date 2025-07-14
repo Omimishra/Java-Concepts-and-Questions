@@ -1,4 +1,4 @@
-package recursion;
+package recursion.subsequences_pattern;
 
 import java.util.ArrayList;
 import java.util.List;

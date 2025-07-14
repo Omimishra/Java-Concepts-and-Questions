@@ -1,10 +1,24 @@
 package recursion;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class nqueen {
-    public boolean isSafe(int row, int col, char[][] board) {
+    public static List<List<String>> solveNQueens(int n) {
+        List<List<String>> res = new ArrayList<>();
+        char[][] board = new char[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                board[i][j] = '.';// Initialize the board with '.'
+            }
+        }
+        helper(board, res, 0);// Start placing queens from the first column
+         // Call the helper function to find all arrangements of N Queens on the board
+         // The helper function will fill the res list with valid arrangements
+        return res;
+    }
+    public static boolean isSafe(int row, int col, char[][] board) {
        //horizontal
        for(int j=0; j<board.length; j++) {
            if(board[row][j] == 'Q') {
@@ -53,46 +67,46 @@ public class nqueen {
        return true;
    }
   
-   public void saveBoard(char[][] board, List<List<String>> allBoards) {
-       String row = "";
-       List<String> newBoard = new ArrayList<>();
-      
-       for(int i=0; i<board.length; i++) {
-           row = "";
-           for(int j=0; j<board[0].length; j++) {
-               if(board[i][j] == 'Q')
-                   row += 'Q';
-               else
-                   row += '.';
-           }
-           newBoard.add(row);
-       }
-      
-       allBoards.add(newBoard);
-   }
+  static List < String > construct(char[][] board) {
+        List < String > res = new LinkedList < String > ();// Create a list to hold the board configuration
+        // Convert each row of the board to a string and add it to the list
+        for (int i = 0; i < board.length; i++) {
+            String s = new String(board[i]);
+            res.add(s);
+        }
+        return res;
+    }
   
-   public void helper(char[][] board, List<List<String>> allBoards, int col) {
+   public static void helper(char[][] board, List<List<String>> res, int col) {
        if(col == board.length) {
-           saveBoard(board, allBoards);
+           res.add(construct(board));
+           // We have placed all queens, so we add the board to the result
            return;
        }
       
        for(int row=0; row<board.length; row++) {
            if(isSafe(row, col, board)) {
-               board[row][col] = 'Q';
-               helper(board, allBoards, col+1);
-               board[row][col] = '.';
+               board[row][col] = 'Q';// Place the queen at (row, col)
+               // Recur to place the rest of the queens
+               helper(board, res, col+1);
+               board[row][col] = '.';// Backtrack by removing the queen from (row, col)
            }
        }
    }
-  
-   public List<List<String>> solveNQueens(int n) {
-       List<List<String>> allBoards = new ArrayList<>();
-       char[][] board = new char[n][n];
-      
-       helper(board, allBoards, 0);
-       return allBoards;
-   }
+   public static void main(String args[]) {
+        int N = 4;
+        List < List < String >> queen = solveNQueens(N);
+        int i = 1;
+        for (List < String > it: queen) {
+            System.out.println("Arrangement " + i);
+            for (String s: it) {
+                System.out.println(s);
+            }
+            System.out.println();
+            i += 1;
+        }
+        
+    }
    
 
 }
