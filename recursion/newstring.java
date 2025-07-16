@@ -1,5 +1,3 @@
-package recursion;
-
 public class newstring {
     public static void moveallx(String str, int i, int c, String str1) {
         if (i == str.length()) {

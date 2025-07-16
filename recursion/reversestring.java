@@ -1,5 +1,3 @@
-package recursion;
-
 public class reversestring {
     public static void printRev (String str, int idx){
         if(idx==0){

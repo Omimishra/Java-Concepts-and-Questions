@@ -1,4 +1,4 @@
-package recursion.basic;
+package basic;
 import java.util.Stack;
 
 public class reverse_stack {

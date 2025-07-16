@@ -1,4 +1,3 @@
-package recursion;
 
 public class tiles {// no of ways in which tiles can be placed
     public static int placetiles(int n, int m) {

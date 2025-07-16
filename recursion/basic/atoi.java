@@ -1,4 +1,4 @@
-package recursion.basic;
+package basic;
 
 public class atoi {
     public int getNum(String s , int i,int sign,long res ){

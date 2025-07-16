@@ -1,5 +1,3 @@
-package recursion;
-
 public class occuranceofelement {
     public static int first = -1;
     public static int last = -1;

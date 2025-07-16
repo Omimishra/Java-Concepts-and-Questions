@@ -1,5 +1,3 @@
-package recursion;
-
 public class sumofnatural {
     public static void printSum(int n, int sum) {
         if (n == 0) {

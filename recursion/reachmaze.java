@@ -1,4 +1,3 @@
-package recursion;
 // time complexity o(2^(m+n))
 public class reachmaze {
     public static int countpath(int i, int j, int n, int m) {

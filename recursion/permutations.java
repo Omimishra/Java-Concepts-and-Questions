@@ -1,4 +1,3 @@
-package recursion;
 import java.util.ArrayList;
 public class permutations {
     public static ArrayList<ArrayList<Integer>> permute(int[] nums) {

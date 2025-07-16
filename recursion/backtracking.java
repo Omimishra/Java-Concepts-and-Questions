@@ -1,5 +1,3 @@
-package recursion;
-
 //time complexity is o(n*n!) where n is no of char in string and n! is permutational combination.
 public class backtracking {
     public static void printpermutation(String str, String p) {

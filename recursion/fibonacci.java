@@ -1,5 +1,3 @@
-package recursion;
-
 public class fibonacci {
     public static void printfib(int a, int b, int n) {
         if (n == 0) {

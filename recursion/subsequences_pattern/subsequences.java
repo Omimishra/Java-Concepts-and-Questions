@@ -1,4 +1,4 @@
-package recursion.subsequences_pattern;
+package subsequences_pattern;
 
 public class subsequences {
     public static void subs(String str, int i, String str1) {

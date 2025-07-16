@@ -1,4 +1,3 @@
-package recursion;
 
 public class optimized_all_permutations {
     public void permute(int[] nums, int index) {

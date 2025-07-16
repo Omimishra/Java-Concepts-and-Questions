@@ -1,4 +1,4 @@
-package recursion.subsequences_pattern;
+package subsequences_pattern;
 import java.util.ArrayList;
 public class print_all_subs_sum_k {
     public static void print_subsequences(ArrayList<Integer> res,int arr[],int i , int s,int sum){

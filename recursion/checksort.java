@@ -1,5 +1,3 @@
-package recursion;
-
 public class checksort {
     public static boolean check(int arr[],int i){
        if (i==arr.length-1){

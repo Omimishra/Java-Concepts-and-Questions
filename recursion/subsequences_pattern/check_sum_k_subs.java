@@ -1,4 +1,4 @@
-package recursion.subsequences_pattern;
+package subsequences_pattern;
 public class check_sum_k_subs {
    public static boolean check(int arr[], int i, int s, int sum) {
      if(s>sum) return false;

@@ -1,5 +1,3 @@
-package recursion;
-
 // no of ways in which you can invite n people to your party , single or in pairs
 public class pairing {
     public static int callguests(int n) {

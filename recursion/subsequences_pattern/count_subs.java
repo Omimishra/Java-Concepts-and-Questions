@@ -1,4 +1,4 @@
-package recursion.subsequences_pattern;
+package subsequences_pattern;
 
 public class count_subs {
     public static int count(int i,int s,int sum,int arr[]){

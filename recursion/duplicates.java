@@ -1,5 +1,3 @@
-package recursion;
-
 public class duplicates {
     public static boolean map[] = new boolean[26];
 

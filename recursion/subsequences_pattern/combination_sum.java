@@ -1,4 +1,4 @@
-package recursion.subsequences_pattern;
+package subsequences_pattern;
 import java.util.*;
 public class combination_sum {
      public List<List<Integer>> combinationSum(int[] candidates, int target) {

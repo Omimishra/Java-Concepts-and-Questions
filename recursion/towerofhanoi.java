@@ -1,5 +1,3 @@
-package recursion;
-
 public class towerofhanoi {
     public static void toh(int n, String src, String help, String dest) {
         if (n == 1) {

@@ -1,4 +1,4 @@
-package recursion.subsequences_pattern;
+package subsequences_pattern;
 import java .util.*;
 
 public class unique_subsets {

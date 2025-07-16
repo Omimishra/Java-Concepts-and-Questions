@@ -1,4 +1,4 @@
-package recursion;
+package hard;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

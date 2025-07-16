@@ -1,4 +1,4 @@
-package recursion.basic;
+package basic;
 
 public class count_good_nos {
     public long MOD = 1_000_000_007;
