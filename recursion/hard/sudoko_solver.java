@@ -6,11 +6,11 @@ public class sudoko_solver {
     }
     public boolean isValid(char[][] board,int row,int col,char c ){
         for(int i =0;i<9;i++){
-            if(board[row][i]==c)
+            if(board[row][i]==c)//check in the row
             return false;
-            if(board[i][col]==c)
+            if(board[i][col]==c)//check in the column
             return false;
-            if(board[3*(row/3)+i/3][3*(col/3)+i%3]==c)
+            if(board[3*(row/3)+i/3][3*(col/3)+i%3]==c) //check in the 3x3 grid
             return false;
         }
     return true;
