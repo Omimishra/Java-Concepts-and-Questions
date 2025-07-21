@@ -2,6 +2,7 @@ package hard;
 
 import java.util.ArrayList;
 import java.util.List;
+// Given a string num that contains only digits and an integer target, return all possibilities to insert the binary operators '+', '-', and/or '*' between the digits of num so that the resultant expression evaluates to the target value.
 
 public class add_op_exp {
     public List<String> addOperators(String num, int target) {
