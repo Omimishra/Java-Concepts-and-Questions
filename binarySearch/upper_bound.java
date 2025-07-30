@@ -1,16 +1,17 @@
 package binarySearch;
-public class lower_bound {
+public class upper_bound {
     public static int lowerBound(int []arr, int n, int x) {
         int low = 0; int high = n-1;
         int ans = n;
         while(low<=high){
             int mid = (low+high)/2;
-            if(arr[mid]>=x){
+            if(arr[mid]>x){
             ans = mid;
             ////look for smaller index on the left
             high = mid-1;
             }
             else {
+                //look in the right half
                 low = mid+1;
             }
 
