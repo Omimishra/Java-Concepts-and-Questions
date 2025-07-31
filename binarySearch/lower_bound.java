@@ -1,5 +1,11 @@
 package binarySearch;
 public class lower_bound {
+    //search index ques
+    // You are given a sorted array arr of distinct values and a target value x. You need to search for the index of the target value in the array.
+    // If the value is present in the array, then return its index. Otherwise, determine the index where it would be inserted in the array while maintaining the sorted order.
+
+    // write a program to find the lower bound of x.
+    //both ques have same code
     public static int lowerBound(int []arr, int n, int x) {
         int low = 0; int high = n-1;
         int ans = n;
