@@ -6,9 +6,10 @@ public class peak_element {
         if (n == 1)
             return 0; // If only one element, return index 0
         if (arr[0] > arr[1])
-            return 0; // If first element is a peak
+            return arr[0]; // If first element is a peak
         if (arr[n - 1] > arr[n - 2])
-            return n - 1; // If last element is a peak
+            return arr[n - 1]; // If last element is a peak
+            
         int low = 1;
         int high = n - 2;
         while (low <= high) {
