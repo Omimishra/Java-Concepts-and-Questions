@@ -1,7 +1,7 @@
 package Two_pointer;
 
 import java.util.HashMap;
-
+// Given a String, find the length of longest substring without any repeating character.
 public class longest_substring {
     static int solve(String s) {
         HashMap < Character, Integer > mpp = new HashMap < Character, Integer > ();
