@@ -1,5 +1,3 @@
-package Two_pointer;
-
 public class max_cons_1 {
 
     public int longestOnes(int[] nums , int k){

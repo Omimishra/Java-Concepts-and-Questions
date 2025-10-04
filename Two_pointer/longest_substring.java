@@ -1,5 +1,3 @@
-package Two_pointer;
-
 import java.util.HashMap;
 // Given a String, find the length of longest substring without any repeating character.
 public class longest_substring {
@@ -11,7 +9,7 @@ public class longest_substring {
         int len = 0;
         while (right < n) {
             if (mpp.containsKey(s.charAt(right))) 
-            left = Math.max(mpp.get(s.charAt(right)) + 1, left);
+            left = Math.max(mpp.get(s.charAt(right)) + 1, left); //if map has the char then move the left pointer to the next index of the previous occurrence of that char
 
             mpp.put(s.charAt(right), right);
 
