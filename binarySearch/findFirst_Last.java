@@ -1,4 +1,5 @@
 package binarySearch;
+// Find first and last position of an element in a sorted array
 public class findFirst_Last {
     public int[] searchRange(int[] nums, int target) {
         int n = nums.length;
@@ -41,5 +42,12 @@ public class findFirst_Last {
             }
         }
         return last;
+    }
+    public static void main(String[] args) {
+        findFirst_Last obj = new findFirst_Last();
+        int[] nums = {5,7,7,8,8,10};
+        int target = 8;
+        int[] result = obj.searchRange(nums, target);
+        System.out.println("The first and last position of " + target + " is: [" + result[0] + ", " + result[1] + "]");
     }
 }
